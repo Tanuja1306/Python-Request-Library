@@ -1,0 +1,105 @@
+Task Manager API
+The Task Manager API is a Python-based RESTful API designed to help users manage their tasks effectively. It provides a set of endpoints that allow users to perform CRUD (Create, Read, Update, Delete) operations on tasks. This API is built using a Python web framework (e.g., Flask, FastAPI, or Django) and uses an SQLite database to persist task data.
+
+Key Features
+Create Tasks: Users can create new tasks by providing a title and description.
+Retrieve Tasks: Users can retrieve a list of all tasks or fetch a specific task by its ID.
+Update Tasks: Existing tasks can be updated by providing the task's ID along with new title and description.
+Delete Tasks: Users can delete tasks by specifying the task's ID.
+
+Technologies Used
+Python: The core programming language for building the API.
+Web Framework: A Python web framework (e.g., Flask) is used to create the RESTful API.
+SQLite Database: Task data is stored and retrieved from an SQLite database.
+Unit Testing: The API is tested thoroughly using unit tests to ensure functionality and correctness.
+
+Task Manager API Documentation
+This API allows you to manage tasks by performing CRUD (Create, Read, Update, Delete) operations. You can interact with tasks using the following endpoints.
+
+Base URL
+The base URL for this API is http://your-api-url.com.
+
+Endpoints
+1. Create a Task
+POST /tasks
+
+Create a new task by providing a title and description.
+
+Request:
+{
+    "title": "Task 1",
+    "description": "This is the first task."
+}
+
+Response (201 Created):
+{
+    "id": 1,
+    "title": "Task 1",
+    "description": "This is the first task."
+}
+
+2. Retrieve All Tasks
+GET /tasks
+
+Retrieve a list of all tasks.
+
+Response (200 OK):
+[
+    {
+        "id": 1,
+        "title": "Task 1",
+        "description": "This is the first task."
+    },
+    {
+        "id": 2,
+        "title": "Task 2",
+        "description": "This is the second task."
+    }
+]
+
+3. Retrieve a Specific Task
+GET /tasks/{id}
+
+Retrieve a specific task by its ID.
+
+Response (200 OK):
+{
+    "id": 1,
+    "title": "Task 1",
+    "description": "This is the first task."
+}
+
+4. Update a Task
+PUT /tasks/{id}
+
+Update an existing task by providing the task's ID.
+
+Request:
+{
+    "title": "Updated Task 1",
+    "description": "This is the updated first task."
+}
+
+Response (200 OK):
+{
+    "id": 1,
+    "title": "Updated Task 1",
+    "description": "This is the updated first task."
+}
+
+5. Delete a Task
+DELETE /tasks/{id}
+
+Delete a task by providing the task's ID.
+
+Response (204 No Content):
+
+Error Handling
+In case of errors, the API will respond with the appropriate HTTP status code and an error message in the response body.
+
+Example error response (400 Bad Request):
+{
+    "error": "Bad Request",
+    "message": "Invalid data format."
+}
+
